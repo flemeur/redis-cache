@@ -7,7 +7,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/go-redis/cache/v9"
+	cache "github.com/flemeur/redis-cache/v9"
 )
 
 func TestTinyLFU_Get_CorruptionOnExpiry(t *testing.T) {

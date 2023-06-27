@@ -1,4 +1,4 @@
-module github.com/go-redis/cache/v9
+module github.com/flemeur/redis-cache/v9
 
 go 1.20
 

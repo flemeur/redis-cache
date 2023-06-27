@@ -13,7 +13,7 @@ import (
 	. "github.com/onsi/gomega"
 	"github.com/redis/go-redis/v9"
 
-	"github.com/go-redis/cache/v9"
+	cache "github.com/flemeur/redis-cache/v9"
 )
 
 func TestGinkgo(t *testing.T) {
