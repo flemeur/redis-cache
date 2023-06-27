@@ -337,8 +337,8 @@ var _ = Describe("Cache", func() {
 				Expect(callCount).To(Equal(int64(2)))
 			})
 
-			It("skips Set when TTL = -1", func() {
-				key := "skip-set"
+			It("call Set with a ttl of 0 when TTL = -1", func() {
+				key := "ttl-0"
 
 				var value string
 				err := mycache.Once(&cache.Item{
@@ -356,7 +356,7 @@ var _ = Describe("Cache", func() {
 				if rdb != nil {
 					exists, err := rdb.Exists(ctx, key).Result()
 					Expect(err).NotTo(HaveOccurred())
-					Expect(exists).To(Equal(int64(0)))
+					Expect(exists).To(Equal(int64(1)))
 				}
 			})
 		})
