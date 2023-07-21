@@ -1,6 +1,6 @@
 # Redis cache library for Golang
 
-[![Build Status](https://travis-ci.org/go-redis/cache.svg)](https://travis-ci.org/go-redis/cache)
+[![Build Status](https://travis-ci.org/flemeur/redis-cache.svg)](https://travis-ci.org/flemeur/redis-cache)
 [![GoDoc](https://godoc.org/github.com/flemeur/redis-cache?status.svg)](https://pkg.go.dev/github.com/flemeur/redis-cache/v9?tab=doc)
 
 > go-redis/cache is brought to you by :star:
