@@ -3,7 +3,7 @@ module github.com/flemeur/redis-cache/v9
 go 1.20
 
 require (
-	github.com/klauspost/compress v1.16.6
+	github.com/klauspost/compress v1.16.7
 	github.com/onsi/ginkgo v1.16.5
 	github.com/onsi/gomega v1.25.0
 	github.com/redis/go-redis/v9 v9.0.5
