@@ -4,7 +4,6 @@ import (
 	"context"
 	"errors"
 	"fmt"
-	"log"
 	"sync/atomic"
 	"time"
 
@@ -45,7 +44,9 @@ type Item struct {
 	Value interface{}
 
 	// TTL is the cache expiration time.
-	// Default TTL is 1 hour.
+	// Default TTL is 0 = cache forever.
+	// 0 or negative means cache forever.
+	// TTL durations must be at least 1 * time.Second, otherwise it will be set to 1 * time.Second.
 	TTL time.Duration
 
 	// Do returns value to be cached.
@@ -79,21 +80,15 @@ func (item *Item) value() (interface{}, error) {
 }
 
 func (item *Item) ttl() time.Duration {
-	const defaultTTL = time.Hour
-
-	if item.TTL < 0 {
+	if item.TTL <= 0 {
 		return 0
 	}
 
-	if item.TTL != 0 {
-		if item.TTL < time.Second {
-			log.Printf("too short TTL for key=%q: %s", item.Key, item.TTL)
-			return defaultTTL
-		}
-		return item.TTL
+	if item.TTL < time.Second {
+		return time.Second
 	}
 
-	return defaultTTL
+	return item.TTL
 }
 
 // ------------------------------------------------------------------------------
